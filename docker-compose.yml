@@ -1,0 +1,52 @@
+version: '3.7'
+
+services:
+  # Rails API service
+  api:
+    build:
+      context: ./api
+    volumes:
+      - ./api:/api
+    ports:
+      - "3001:3000"
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/api_production
+    depends_on:
+      - db
+    command: >
+      sh -c "
+        echo 'Waiting for the database to be ready...' &&
+        sleep 5 &&
+        echo 'Creating database...' &&
+        bundle exec rake db:create || echo 'Database already exists' &&
+        echo 'Running migrations...' &&
+        bundle exec rake db:migrate &&
+        echo 'Seeding database...' &&
+        bundle exec rake db:seed || echo 'No seeds to run' &&
+        echo 'Starting server...' &&
+        bundle exec rackup -o 0.0.0.0 -p 3000
+      "
+
+  # React frontend service
+  web:
+    build:
+      context: ./web
+    volumes:
+      - ./web:/web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+  # PostgreSQL database service
+  db:
+    image: postgres:13
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: api_production
+
+volumes:
+  pg_data:

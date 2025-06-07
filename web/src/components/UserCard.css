@@ -1,0 +1,144 @@
+/* UserCard Styles */
+.user-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.user-card h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.user-card p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  color: #0056b3;
+}
+
+.user-card .donation-info {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.user-card .donation-info strong {
+  font-weight: bold;
+}
+
+.donation-history {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.donation-history h4 {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.donation-history ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+}
+
+.donation-history li {
+  color: #555;
+}
+
+.donation-history li span {
+  font-weight: bold;
+}
+
+.donation-history li span.donation-type {
+  color: #007bff;
+}
+
+.donation-item {
+  display: inline-block;
+  align-items: center;
+  padding: 0 1rem ;
+}
+
+.donation-item::before {
+  content: "–"; /* Adds a dash instead of a bullet point */
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.donation-item span {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* UserCard.css */
+.toggle-expand {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.donation-details {
+  margin-top: 1rem;
+}
+
+.platform-section {
+  margin-bottom: 1rem;
+}
+
+.donation-item {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.donation-item:last-child {
+  border-bottom: none;
+}
+
+/* Add to UserCard.css */
+.donation-details {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.donation-item {
+  padding: 0.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.donation-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* UserCard.css */
+.text-red-500 { color: #ef4444; }
+.hover\:text-red-700:hover { color: #b91c1c; }
+.donation-item { padding: 0.25rem 0; }
+/* Other styles remain unchanged */

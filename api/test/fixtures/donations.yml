@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  platform: MyString
+  amount: 9.99
+  donation_date: 2025-02-12 18:56:03
+
+two:
+  user: two
+  platform: MyString
+  amount: 9.99
+  donation_date: 2025-02-12 18:56:03

@@ -1,0 +1,54 @@
+# Docker
+.env
+docker-compose.override.yml
+
+# Database
+*.sqlite3
+*.db
+
+# Logs
+*.log
+logs/
+
+# Backend (Rails/Ruby)
+api/.bundle/
+api/vendor/bundle/
+api/log/*
+api/tmp/*
+api/.byebug_history
+api/.rspec
+api/coverage/
+api/.env*
+api/config/master.key
+api/config/credentials.yml.enc
+
+# Frontend (React/Node)
+web/node_modules/
+web/.env*
+web/build/
+web/dist/
+web/coverage/
+web/.nyc_output
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
