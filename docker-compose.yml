@@ -12,7 +12,8 @@ services:
     environment:
       - DATABASE_URL=postgres://postgres:password@db:5432/api_production
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     command: >
       sh -c "
         echo 'Waiting for the database to be ready...' &&
@@ -36,7 +37,8 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - api
+      api:
+        condition: service_started
 
   # PostgreSQL database service
   db:
@@ -47,6 +49,12 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: api_production
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U usder -d myapp"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
 volumes:
   pg_data:
